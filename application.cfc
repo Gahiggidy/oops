@@ -1,13 +1,11 @@
-<cffunction name="onRequestStart">
-	
-	<cfset var objDatasource = createobject('component', 'demo.beans.datasource').init(
-		DSName = 'Skiclub', username = '', password = ''		
-		) />
+component extends="framework.one"
+{
 
-	<cfset var objMemberSVC= createobject('component', 'demo.beans.memberService').init(
-		datasource = objDatasource
-		) />
+this.datasource="skiclub";
 
-	<cfset application.MemberSVC = objMemberSVC />
+function setupApplication() {
+        var bf = new framework.ioc( "model" );
+        setBeanFactory( bf );
+    }
 
-</cffunction>
+}
