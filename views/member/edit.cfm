@@ -1,11 +1,10 @@
-<cfdump var="#rc#"><!------>
 
 <cfset objMember = rc.data />
 
 <cfoutput>
 
 <h3 class="heading_b uk-margin-bottom">
-	Add New Club Member
+	#rc.pageTitle#
 </h3>
 
 <div class="uk-grid" data-uk-grid-margin="">
@@ -13,7 +12,7 @@
 <div class="md-card">
 <div class="md-card-content large-padding">
 
-	<form name="createMember" action="?action=member.save" method="post">
+	<form name="createMember" action="index.cfm?action=member.save" method="post">
 		
 		<input type="hidden" name="memberId" value="#objMember.getMemberId()#" />
 		

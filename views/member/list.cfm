@@ -1,5 +1,3 @@
-<!---<cfdump var="#rc#">--->
-
 <cfset memberList = rc.data />
 
 <div class="md-card uk-margin-medium-bottom">
@@ -37,7 +35,7 @@
 </div>
 
 <div class="md-fab-wrapper">
-	<a class="md-fab md-fab-accent" href="memberForm.cfm">
+	<a class="md-fab md-fab-accent" href="index.cfm?action=member.edit">
 		<i class="material-icons">add</i>
 	</a>
 </div>
