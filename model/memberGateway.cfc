@@ -1,4 +1,6 @@
-<cfcomponent displayname="MemberGateway" output="false">
+<cfcomponent displayname="MemberGateway" output="false" accessors="true">
+
+	<cfproperty name="beanFactory" />
 	
 	<cffunction name="getMemberById" access="public" output="false">
 	
@@ -14,7 +16,7 @@
 		</cfquery>
 		
 		<cfif qSearch.recordcount>
-			<cfset objMember = createObject('component', 'beans.Member').init(
+			<cfset objMember = variables.beanFactory.getBean("member").init(
 				MemberId = qSearch.memberId,
 				firstName = qSearch.firstName,
 				lastName = qSearch.lastName,
@@ -24,27 +26,6 @@
 		</cfif>
 		
 		<cfreturn objMember />
-		
-	</cffunction>
-	
-	<cffunction name="deleteMemberById" access="public" output="false">
-		
-		<cfargument name="memberId" required="yes">
-		
-		<cfset var qDelete = '' />
-		<cfset var boolSuccess = true />
-		
-		<cftry>
-			<cfquery name="qDelete">
-				DELETE FORM member
-				WHERE memberId = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.memberId#">
-			</cfquery>
-			<cfcatch type="database">
-				<cfset boolSuccess = false />
-			</cfcatch>
-		</cftry>
-		
-		<cfreturn boolSuccess />
 		
 	</cffunction>
 	
