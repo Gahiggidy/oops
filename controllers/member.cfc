@@ -10,7 +10,7 @@
     }
 	</cfscript>
 	
-	<cffunction name="list">
+	<cffunction name="list" access="remote">
 		
 		<cfset rc.data = variables.memberGateway.filterAllMembers() />
 		
