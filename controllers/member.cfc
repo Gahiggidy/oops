@@ -22,7 +22,7 @@
 			<cfset rc.data = variables.memberGateway.getMemberById(rc.memberId) />
 			<cfset rc.pageTitle = "Update Club Member - #rc.data.getFirstName()# #rc.data.getLastName()#" />
 		<cfelse>
-			<cfset rc.data = variables.beanFactory.getBean("member") />
+			<cfset rc.data = variables.beanFactory.getBean("memberBean") />
 			<cfset rc.pageTitle = "Add New Club Member" />
 		</cfif>
 		
@@ -31,7 +31,7 @@
 	<cfscript>
 	    function save( rc ) {
 
-		var member = variables.beanFactory.getBean("member").init(argumentCollection = FORM);
+		var member = variables.beanFactory.getBean("memberBean").init(argumentCollection = FORM);
 		
         variables.memberGateway.saveMember(member);
         variables.fw.redirect( "member.list" );
