@@ -21,7 +21,7 @@
 							<td>#firstName#</td>
 							<td>#lastName#</td>
 							<td>#Email#</td>
-							<td>#SkiLevelId#</td>
+							<td>#SkiLevel#</td>
 							<td>#DateFormat(JoinDate, "mmm-yyyy")#</td>
 							<td class="uk-text-center">
 								<a href="index.cfm?action=member.edit&memberId=#memberId#"><i class="md-icon material-icons">mode_edit</i></a>
