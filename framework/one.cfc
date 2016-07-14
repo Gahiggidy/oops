@@ -2420,7 +2420,7 @@ component {
             variables.framework.diOverrideAllowed = false;
         }
         if ( !structKeyExists( variables.framework, 'diEngine' ) ) {
-            variables.framework.diEngine = 'none';
+            variables.framework.diEngine = 'di1';
         }
         if ( !structKeyExists( variables.framework, 'diLocations' ) ) {
             variables.framework.diLocations = 'model,' & variables.framework.controllersFolder;
