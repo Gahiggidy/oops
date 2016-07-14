@@ -16,7 +16,7 @@
 		</cfquery>
 		
 		<cfif qSearch.recordcount>
-			<cfset objMember = variables.beanFactory.getBean("member").init(
+			<cfset objMember = variables.beanFactory.getBean("memberBean").init(
 				MemberId = qSearch.memberId,
 				firstName = qSearch.firstName,
 				lastName = qSearch.lastName,
@@ -148,8 +148,10 @@
 		<cfset var qSearch = '' />
 		
 		<cfquery name="qSearch">
-			SELECT MemberId, firstName, lastName, email, joinDate, skiLevelId
-			FROM member
+			SELECT MemberId, firstName, lastName, email, joinDate, m.skiLevelId, s.skiLevel
+			FROM member m
+			LEFT JOIN skiLevel s
+			ON m.skiLevelId = s.skiLevelId
 			WHERE 1 = 1
 			<cfif NOT structIsEmpty(arguments.filter)>
 				<cfif structKeyExists(arguments.filter, 'lastName')>
